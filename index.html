@@ -196,6 +196,43 @@ footer .wrap{padding-block:52px 30px}
 .fg a.logo span{color:#9FB2C8}
 .fine{border-top:1px solid rgba(255,255,255,.1);margin-top:38px;padding-top:20px;font-size:13px;display:grid;gap:6px;color:#7F94AB}
 
+
+/* contact form */
+.cf{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:16px;visibility:hidden}
+.cf.open{visibility:visible}
+.cf .bg{position:absolute;inset:0;background:rgba(7,22,43,.55);opacity:0;transition:opacity .25s}
+.cf.open .bg{opacity:1}
+.cf .box{position:relative;width:100%;max-width:560px;max-height:calc(100vh - 32px);overflow:auto;background:#fff;border-radius:16px;box-shadow:0 30px 70px -20px rgba(7,22,43,.6);transform:translateY(24px) scale(.98);opacity:0;transition:transform .3s cubic-bezier(.2,.8,.2,1),opacity .25s}
+.cf.open .box{transform:none;opacity:1}
+.cf .hd{background:var(--blue);color:#fff;padding:20px 24px;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;position:relative;overflow:hidden}
+.cf .hd::after{content:"";position:absolute;right:-40px;bottom:-60px;width:150px;height:150px;background:url("img/mark.svg") center/contain no-repeat;opacity:.18}
+.cf .hd h2{font-size:26px;color:#fff}
+.cf .hd p{color:#D6E6F8;font-size:15px;margin-top:4px}
+.cf .x{position:relative;z-index:1;width:36px;height:36px;border-radius:50%;border:0;background:rgba(255,255,255,.16);color:#fff;font-size:22px;line-height:1;cursor:pointer}
+.cf form{padding:20px 24px 24px;display:grid;gap:14px}
+.cf .topics{display:flex;flex-wrap:wrap;gap:8px}
+.cf .topics label{cursor:pointer}
+.cf .topics input{position:absolute;opacity:0;pointer-events:none}
+.cf .topics span{display:inline-block;padding:7px 13px;border-radius:999px;border:1.5px solid var(--line);font-weight:600;font-size:14.5px;color:var(--ink-2)}
+.cf .topics input:checked+span{border-color:var(--blue);background:var(--blue-l);color:var(--blue)}
+.cf .topics input:focus-visible+span{outline:2px solid var(--orange);outline-offset:2px}
+.cf .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cf .f label{display:block;font-size:14px;font-weight:600;color:var(--deep);margin-bottom:5px}
+.cf .f label small{color:var(--ink-3);font-weight:500}
+.cf input[type=text],.cf input[type=email],.cf select,.cf textarea{width:100%;font:inherit;font-size:16px;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:8px;padding:10px 12px;outline:none}
+.cf input:focus,.cf select:focus,.cf textarea:focus{border-color:var(--blue)}
+.cf textarea{min-height:130px;resize:vertical}
+.cf .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.cf .err{color:#C8363C;font-size:14.5px;min-height:1em}
+.cf .acts{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.cf .acts small{color:var(--ink-3);font-size:13px}
+.cf .done{padding:40px 28px;text-align:center;display:none}
+.cf.sent form{display:none} .cf.sent .done{display:block}
+.cf .done .ok{width:64px;height:64px;border-radius:50%;margin:0 auto 14px;display:grid;place-items:center;background:#E3F4EA;color:var(--green);font-size:32px}
+.cf .done h3{font-size:24px;color:var(--deep)}
+.cf .done p{color:var(--ink-2);margin:8px 0 20px}
+body.locked{overflow:hidden}
+@media (max-width:560px){.cf .row{grid-template-columns:1fr}}
 @media (max-width:980px){
   .hero .wrap{grid-template-columns:1fr;padding-block:56px 64px}
   .route{grid-template-columns:1fr 1fr}
@@ -232,7 +269,7 @@ footer .wrap{padding-block:52px 30px}
       <a class="av" href="#aviation">Aviation</a>
       <a class="gm" href="#gaming">Gaming</a>
       <a href="#studio">Company</a>
-      <a href="#contact">Contact</a>
+      <a href="#contact" data-topic="other">Contact</a>
       <a class="btn blue" href="https://orvixcentralhub.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Team sign in</a>
     </nav>
   </div>
@@ -299,7 +336,7 @@ footer .wrap{padding-block:52px 30px}
       <div class="route">
         <svg class="path" viewBox="0 0 1000 40" preserveAspectRatio="none" aria-hidden="true"><path d="M60 34 C 300 -6, 700 -6, 940 34" fill="none" stroke="#9CC2EA" stroke-width="2" stroke-dasharray="3 8" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
         <article class="ac feat">
-          <span class="gate o">FLAGSHIP · ON THE APP STORE</span>
+          <span class="gate o">NOW BOARDING · ON THE APP STORE</span>
           <div class="hd"><img src="img/aero.png" alt="Orvix Aero icon" width="52" height="52"><div><h3>Orvix Aero</h3><div class="for">For airline pilots</div></div></div>
           <p>A logbook that fills itself, FAR 117 rest and duty limits, your schedule from a screenshot, commuting and a daily briefing.</p>
           <ul><li>Automatic logbook and totals</li><li>FAR 117 legality at a glance</li><li>Commute planner with live tracking</li></ul>
@@ -368,9 +405,11 @@ footer .wrap{padding-block:52px 30px}
           <div><dt>Platforms</dt><dd>iOS, Android, web, Windows</dd></div>
         </dl>
         <div class="c">
-          <a href="mailto:info@orvixaero.com?subject=Partnership">Partnerships <small>Airlines, unions, schools →</small></a>
-          <a href="mailto:info@orvixaero.com?subject=Support">App support <small>info@orvixaero.com →</small></a>
-          <a href="https://orvixaero.com/privacy.html">Privacy and legal <small>Policy and terms →</small></a>
+          <a href="#contact" data-topic="partnership">Partnerships <small>Airlines, unions, schools →</small></a>
+          <a href="#contact" data-topic="support">App support <small>Questions about an app →</small></a>
+          <a href="#contact" data-topic="press">Press <small>Interviews and media →</small></a>
+          <a href="#contact" data-topic="privacy">Privacy and legal <small>Data requests →</small></a>
+          <button class="btn orange" type="button" data-topic="other" style="margin-top:4px">Send us a message</button>
         </div>
       </div>
     </div>
@@ -394,5 +433,70 @@ footer .wrap{padding-block:52px 30px}
     </div>
   </div>
 </footer>
+
+<div class="cf" id="cf" aria-hidden="true">
+  <div class="bg" data-close></div>
+  <div class="box" role="dialog" aria-modal="true" aria-labelledby="cf-t">
+    <div class="hd"><div><h2 id="cf-t">Contact Orvix Studios</h2><p>We usually reply within one business day.</p></div><button class="x" type="button" data-close aria-label="Close">×</button></div>
+    <form id="cf-form" novalidate>
+      <div class="f"><label>What's it about?</label>
+        <div class="topics">
+          <label><input type="radio" name="topic" value="partnership"><span>Partnership</span></label>
+          <label><input type="radio" name="topic" value="support"><span>App support</span></label>
+          <label><input type="radio" name="topic" value="press"><span>Press</span></label>
+          <label><input type="radio" name="topic" value="privacy"><span>Privacy and legal</span></label>
+          <label><input type="radio" name="topic" value="other" checked><span>Something else</span></label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="f"><label for="cf-name">Your name</label><input id="cf-name" name="name" type="text" autocomplete="name" maxlength="100" required></div>
+        <div class="f"><label for="cf-email">Email</label><input id="cf-email" name="email" type="email" autocomplete="email" maxlength="200" required></div>
+      </div>
+      <div class="row">
+        <div class="f"><label for="cf-company">Company or organization <small>(optional)</small></label><input id="cf-company" name="company" type="text" autocomplete="organization" maxlength="120"></div>
+        <div class="f"><label for="cf-app">Which app? <small>(optional)</small></label><select id="cf-app" name="app"><option value="">Not about an app</option><option>Orvix Aero</option><option>Orvix Family</option><option>Orvix Cabin</option><option>Orvix Grid</option><option>Orvix Scripts</option></select></div>
+      </div>
+      <div class="f"><label for="cf-msg">Message</label><textarea id="cf-msg" name="message" maxlength="4000" required></textarea></div>
+      <div class="hp" aria-hidden="true"><label>Website <input name="website" type="text" tabindex="-1" autocomplete="off"></label></div>
+      <div class="err" id="cf-err" role="alert"></div>
+      <div class="acts"><small>We use your details only to reply. <a href="https://orvixaero.com/privacy.html">Privacy policy</a></small><button class="btn blue" type="submit" id="cf-send">Send message</button></div>
+    </form>
+    <div class="done"><div class="ok">✓</div><h3>Message sent</h3><p>Thanks for reaching out. We'll reply to your email, usually within one business day.</p><button class="btn line" type="button" data-close>Close</button></div>
+  </div>
+</div>
+<script>
+(() => {
+  const cf = document.getElementById('cf'), form = document.getElementById('cf-form'), err = document.getElementById('cf-err'), send = document.getElementById('cf-send');
+  let opened = 0, last = null;
+  const open = (topic) => {
+    last = document.activeElement;
+    cf.classList.remove('sent'); err.textContent = '';
+    const r = form.querySelector('input[name=topic][value="' + (topic || 'other') + '"]'); if (r) r.checked = true;
+    if (topic === 'support') document.getElementById('cf-app').value = 'Orvix Aero';
+    cf.classList.add('open'); cf.setAttribute('aria-hidden', 'false'); document.body.classList.add('locked');
+    opened = Date.now(); setTimeout(() => document.getElementById('cf-name').focus(), 60);
+  };
+  const close = () => { cf.classList.remove('open'); cf.setAttribute('aria-hidden', 'true'); document.body.classList.remove('locked'); if (last) last.focus(); };
+  document.querySelectorAll('[data-topic]').forEach((el) => el.addEventListener('click', (e) => { e.preventDefault(); open(el.dataset.topic); }));
+  cf.addEventListener('click', (e) => { if (e.target.closest('[data-close]')) close(); });
+  addEventListener('keydown', (e) => { if (e.key === 'Escape' && cf.classList.contains('open')) close(); });
+  if (location.hash === '#message') open('other');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault(); err.textContent = '';
+    const d = Object.fromEntries(new FormData(form));
+    if (!d.name.trim()) { err.textContent = 'Please add your name.'; return form.name.focus(); }
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email.trim())) { err.textContent = 'Please check your email address.'; return form.email.focus(); }
+    if (!d.message.trim()) { err.textContent = 'Please write a message.'; return form.message.focus(); }
+    send.disabled = true; send.textContent = 'Sending...';
+    try {
+      const r = await fetch('https://uxnjglagrrprnsliyaed.supabase.co/functions/v1/site-contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...d, ms: Date.now() - opened }) });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok || !j.ok) throw new Error(j.error || 'Something went wrong.');
+      form.reset(); cf.classList.add('sent');
+    } catch (x) { err.textContent = (x.message || 'Something went wrong.') + ' You can also email info@orvixaero.com.'; }
+    finally { send.disabled = false; send.textContent = 'Send message'; }
+  });
+})();
+</script>
 </body>
 </html>
