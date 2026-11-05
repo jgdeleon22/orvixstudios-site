@@ -38,16 +38,16 @@
 </header>
 
 <main>
-<section class="ph" style="--acc:#B26A10"><div class="wrap">
+<section class="ph" id="top" style="--acc:#B26A10"><div class="wrap">
   <div class="crumbs"><a href="/">Orvix Studios</a> / <a href="/#aviation">Orvix Aviation</a> / Orvix Cabin</div>
   <div class="apphd"><img class="ic" src="/img/cabin.png" alt="Orvix Cabin icon" width="88" height="88"><div><div class="for">For flight attendants</div><h1>Orvix Cabin</h1></div></div>
   <p class="lead">The trip app for flight attendants. Add your schedule from a screenshot and everything else fills itself in.</p>
-  <div class="ctas2"><a class="btn blue" href="/#message">Ask about it</a><span class="stt" style="--sc:#0B63C5">In testing</span></div>
+  <div class="ctas2"><form class="notify" data-app="cabin"><label class="sr" for="nf-e">Your email</label><input id="nf-e" type="email" name="email" placeholder="Your email" autocomplete="email" required maxlength="200"><button class="btn blue" type="submit">Email me at launch</button><span class="nf-msg" role="status"></span></form><span class="stt" style="--sc:#0B63C5">In testing</span></div>
 </div></section>
 <section class="body" style="--acc:#B26A10"><div class="wrap split">
   <div><div class="feats"><div class="feat"><b>Today at a glance</b><span>Your next report and each leg, with delays and gate changes in red.</span></div><div class="feat"><b>Trip alerts</b><span>A notification when a leg is delayed, the gate changes or the inbound plane is late.</span></div><div class="feat"><b>Duty and rest</b><span>Your duty day and rest under the FAA flight attendant rules, and when you’re legal again.</span></div><div class="feat"><b>Layovers</b><span>Weather, food and errands near the hotel, your notes for each city, and tips from other crews.</span></div><div class="feat"><b>Pay estimate</b><span>The month’s pay with your hourly rate, rigs, minimum day and per diem.</span></div><div class="feat"><b>Crashpads</b><span>Share a crashpad with your roommates and see who’s staying which nights.</span></div><div class="feat"><b>English and Spanish</b><span>Pick a language in Settings, or let it follow your phone.</span></div></div><p class="note2">Documents, expenses, pay rates and packing lists stay on your phone. No ads. Orvix Cabin never shows airline-internal data such as seat loads, standby lists or crew lists.</p>
   <p style="margin-top:22px;color:var(--ink-2)">Questions about Orvix Cabin? <a class="dl" href="/#message">Send us a message</a>.</p></div>
-  <div class="card" style="text-align:center;padding:36px 24px"><img src="/img/cabin.png" alt="" width="120" height="120" style="width:120px;height:120px;border-radius:26px;margin:0 auto 16px"><h3>Orvix Cabin</h3><p>For flight attendants</p><div class="row" style="justify-content:center"><a class="btn blue" href="/#message">Ask about it</a></div></div>
+  <div class="card" style="text-align:center;padding:36px 24px"><img src="/img/cabin.png" alt="" width="120" height="120" style="width:120px;height:120px;border-radius:26px;margin:0 auto 16px"><h3>Orvix Cabin</h3><p>For flight attendants</p><div class="row" style="justify-content:center"><a class="btn line" href="#top">Get the launch email</a></div></div>
 </div></section>
 </main>
 
@@ -68,6 +68,21 @@
     </div>
   </div>
 </footer>
+<script>
+document.querySelectorAll("form.notify").forEach(function (f) {
+  f.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    var msg = f.querySelector(".nf-msg"), btn = f.querySelector("button"), email = f.email.value.trim();
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { msg.textContent = "Please check your email address."; return; }
+    btn.disabled = true; msg.textContent = "";
+    try {
+      var r = await fetch("https://uxnjglagrrprnsliyaed.supabase.co/rest/v1/launch_signups", { method: "POST", headers: { apikey: "sb_publishable_8vrxn8kJD8_lXdJ-a6_eqg_EtHNC4B8", "Content-Type": "application/json", Prefer: "return=minimal" }, body: JSON.stringify({ app: f.dataset.app, email: email }) });
+      if (!r.ok && r.status !== 409) throw 0;
+      f.innerHTML = '<span class="nf-ok">You’re on the list. We’ll email you when it launches.</span>';
+    } catch (x) { msg.textContent = "That didn’t go through. Please try again."; btn.disabled = false; }
+  });
+});
+</script>
 <script>try{if(!/^(localhost|127\.)/.test(location.hostname)){var q=new URLSearchParams(location.search);fetch("https://uxnjglagrrprnsliyaed.supabase.co/functions/v1/site-hit",{method:"POST",keepalive:true,body:JSON.stringify({path:location.pathname,ref:document.referrer,tz:Intl.DateTimeFormat().resolvedOptions().timeZone,utm:{source:q.get("utm_source")||"",medium:q.get("utm_medium")||"",campaign:q.get("utm_campaign")||""}})}).catch(function(){})}}catch(e){}</script>
 </body>
 </html>

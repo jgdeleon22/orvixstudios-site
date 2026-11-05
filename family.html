@@ -38,11 +38,11 @@
 </header>
 
 <main>
-<section class="ph" style="--acc:#0E8A4A"><div class="wrap">
+<section class="ph" id="top" style="--acc:#0E8A4A"><div class="wrap">
   <div class="crumbs"><a href="/">Orvix Studios</a> / <a href="/#aviation">Orvix Aviation</a> / Orvix Family</div>
   <div class="apphd"><img class="ic" src="/img/family.png" alt="Orvix Family icon" width="88" height="88"><div><div class="for">For pilots’ families</div><h1>Orvix Family</h1></div></div>
   <p class="lead">Know where your pilot is, when they land and when they’ll be home: a live flight map, landing alerts, family chat and pickups, shared by your pilot.</p>
-  <div class="ctas2"><a class="btn blue" href="/#message">Ask about it</a><span class="stt" style="--sc:#B26A10">Boarding soon on the App Store</span></div>
+  <div class="ctas2"><form class="notify" data-app="family"><label class="sr" for="nf-e">Your email</label><input id="nf-e" type="email" name="email" placeholder="Your email" autocomplete="email" required maxlength="200"><button class="btn blue" type="submit">Email me at launch</button><span class="nf-msg" role="status"></span></form><span class="stt" style="--sc:#B26A10">Boarding soon on the App Store</span></div>
 </div></section>
 <section class="body" style="--acc:#0E8A4A"><div class="wrap split">
   <div><div class="feats"><div class="feat"><b>Today at a glance</b><span>Flying, working, on a layover or home, with a countdown to the next trip.</span></div><div class="feat"><b>Live flight map</b><span>Where the plane is right now, its altitude and speed, and the path flown so far.</span></div><div class="feat"><b>Landing alerts</b><span>“Lands in 30 minutes,” “Landed safely,” running late, and made the commute.</span></div><div class="feat"><b>Trip calendar</b><span>Every trip and layover city, plus your own family events so your pilot sees them too.</span></div><div class="feat"><b>Family chat</b><span>Messages, trip photos and voice notes, just between you and your pilot.</span></div><div class="feat"><b>Pickups</b><span>Tap “I’m on my way” for directions to Arrivals; your pilot sees when you’ll get there.</span></div><div class="feat"><b>Kids’ mode</b><span>A simple, big-picture screen for little ones, locked by a parent.</span></div></div><p class="note2">Free, with no ads. Orvix Family needs an invite code from a pilot who uses Orvix Aero; live flights, landing alerts and pickups need the pilot’s Orvix Aero Pro. Your pilot decides who joins and what each person sees.</p>
@@ -68,6 +68,21 @@
     </div>
   </div>
 </footer>
+<script>
+document.querySelectorAll("form.notify").forEach(function (f) {
+  f.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    var msg = f.querySelector(".nf-msg"), btn = f.querySelector("button"), email = f.email.value.trim();
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { msg.textContent = "Please check your email address."; return; }
+    btn.disabled = true; msg.textContent = "";
+    try {
+      var r = await fetch("https://uxnjglagrrprnsliyaed.supabase.co/rest/v1/launch_signups", { method: "POST", headers: { apikey: "sb_publishable_8vrxn8kJD8_lXdJ-a6_eqg_EtHNC4B8", "Content-Type": "application/json", Prefer: "return=minimal" }, body: JSON.stringify({ app: f.dataset.app, email: email }) });
+      if (!r.ok && r.status !== 409) throw 0;
+      f.innerHTML = '<span class="nf-ok">You’re on the list. We’ll email you when it launches.</span>';
+    } catch (x) { msg.textContent = "That didn’t go through. Please try again."; btn.disabled = false; }
+  });
+});
+</script>
 <script>try{if(!/^(localhost|127\.)/.test(location.hostname)){var q=new URLSearchParams(location.search);fetch("https://uxnjglagrrprnsliyaed.supabase.co/functions/v1/site-hit",{method:"POST",keepalive:true,body:JSON.stringify({path:location.pathname,ref:document.referrer,tz:Intl.DateTimeFormat().resolvedOptions().timeZone,utm:{source:q.get("utm_source")||"",medium:q.get("utm_medium")||"",campaign:q.get("utm_campaign")||""}})}).catch(function(){})}}catch(e){}</script>
 </body>
 </html>
