@@ -6,152 +6,210 @@
 <title>Orvix Studios</title>
 <meta name="description" content="Orvix Studios LLC is a Florida software company. We build Orvix Aero, Orvix Family, Orvix Cabin, Orvix Grid and Orvix Scripts.">
 <meta property="og:title" content="Orvix Studios">
-<meta property="og:description" content="Software for aviation professionals, their families and online communities.">
+<meta property="og:description" content="Software for the people who fly, the families who wait for them, and the communities who play together.">
 <meta property="og:url" content="https://orvixstudios.net/">
+<meta name="theme-color" content="#071426">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Orbitron:wght@700;800&display=swap" rel="stylesheet">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"Orvix Studios LLC","url":"https://orvixstudios.net/","email":"info@orvixaero.com","address":{"@type":"PostalAddress","addressLocality":"St. Petersburg","addressRegion":"FL","addressCountry":"US"}}
+{"@context":"https://schema.org","@type":"Organization","name":"Orvix Studios LLC","url":"https://orvixstudios.net/","logo":"https://orvixstudios.net/img/mark.svg","email":"info@orvixaero.com","address":{"@type":"PostalAddress","addressLocality":"St. Petersburg","addressRegion":"FL","addressCountry":"US"}}
 </script>
 <style>
 :root{
-  --page:#F5F7FA; --white:#FFFFFF; --navy:#0B1A2B; --navy-2:#13263B;
-  --ink:#0B1A2B; --ink-2:#4A5E72; --ink-3:#7B8C9C; --rule:#DCE3EA;
-  --orange:#F76E19; --orange-d:#D85A0A; --live:#17834F; --soon:#9A6B00; --test:#3C63A8;
+  --deep:#071426; --deep-2:#0C1E36; --line-d:rgba(255,255,255,.10);
+  --page:#F4F6F9; --white:#fff; --ink:#0B1A2B; --ink-2:#4A5D71; --ink-3:#7A8B9C; --line:#E1E7EE;
+  --orange:#F76E19; --orange-d:#D85A0A; --sky:#62B4FF;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{background:var(--page);color:var(--ink);font:400 17px/1.6 Barlow,system-ui,sans-serif}
 a{color:inherit}
-a:focus-visible,button:focus-visible{outline:2px solid var(--orange);outline-offset:3px;border-radius:4px}
 img{display:block;max-width:100%;height:auto}
-.wrap{max-width:1120px;margin:0 auto;padding-inline:24px}
-h1,h2,h3{font-family:"Barlow Condensed",sans-serif;font-weight:700;line-height:1.05;letter-spacing:.005em}
+a:focus-visible,button:focus-visible{outline:2px solid var(--orange);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:24px}
+h1,h2,h3{font-weight:700;letter-spacing:-.02em;line-height:1.05}
+
+/* logo */
+.logo{display:inline-flex;align-items:center;gap:12px;text-decoration:none}
+.logo img{width:40px;height:40px}
+.logo .wm{display:flex;flex-direction:column;line-height:1}
+.logo b{font:800 21px/1 Orbitron,sans-serif;letter-spacing:.04em}
+.logo span{font:700 9px/1 Orbitron,sans-serif;letter-spacing:.62em;margin-top:6px;opacity:.85}
 
 /* header */
-.top{position:sticky;top:0;z-index:10;background:rgba(11,26,43,.96);backdrop-filter:blur(8px);color:#fff}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
-.brand b{font:700 22px/1 "Barlow Condensed",sans-serif;letter-spacing:.02em}
-.nav{display:flex;align-items:center;gap:28px}
-.nav a{text-decoration:none;color:#C4D1DD;font-weight:500;font-size:16px}
-.nav a:hover{color:#fff}
-.btn{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 20px;border-radius:8px;font:600 16px/1 Barlow,sans-serif;text-decoration:none;border:1px solid transparent}
+.top{position:fixed;inset:0 0 auto;z-index:20;transition:background .2s,border-color .2s;border-bottom:1px solid transparent;color:#fff}
+.top.solid{background:rgba(7,20,38,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line-d)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+.menu{display:flex;align-items:center;gap:30px}
+.menu a{text-decoration:none;color:rgba(255,255,255,.78);font-weight:500}
+.menu a:hover{color:#fff}
+.menu .signin{display:inline-flex;align-items:center;gap:8px}
+.menu .signin svg{width:17px;height:17px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 22px;border-radius:999px;font:600 16px/1 Barlow,sans-serif;text-decoration:none;border:1px solid transparent;transition:background .15s,border-color .15s,transform .15s}
 .btn.primary{background:var(--orange);color:#fff}
 .btn.primary:hover{background:var(--orange-d)}
-.btn.ghost{border-color:rgba(255,255,255,.28);color:#fff}
-.btn.ghost:hover{border-color:#fff}
-.nav .btn{height:38px;padding:0 16px;color:#fff}
+.btn.glass{border-color:rgba(255,255,255,.25);color:#fff;background:rgba(255,255,255,.06)}
+.btn.glass:hover{border-color:rgba(255,255,255,.6)}
+.menu .btn{height:40px;padding:0 18px;color:#fff}
+.btn svg{width:16px;height:16px}
 
 /* hero */
-.hero{background:var(--navy);color:#fff;overflow:hidden}
-.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding-block:80px 0}
-.hero h1{font-size:clamp(44px,5.6vw,68px)}
-.hero h1 em{font-style:normal;color:var(--orange)}
-.hero p{color:#B7C6D4;font-size:20px;max-width:30em;margin-top:22px}
-.hero .ctas{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
-.hero .copy{padding-bottom:80px}
-.phones{display:flex;justify-content:center;align-items:flex-end;align-self:end;padding-top:20px}
-.phone{width:230px;border-radius:34px 34px 0 0;background:#000;padding:9px 9px 0;box-shadow:0 30px 60px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.08);height:440px;overflow:hidden;flex:none}
-.phone img{border-radius:26px 26px 0 0}
-.phone.a{position:relative;z-index:2}
-.phone.b{margin-left:-36px;height:380px;opacity:.9}
+.hero{position:relative;overflow:hidden;background:var(--deep);color:#fff;padding-top:76px}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(600px 420px at 78% 30%,rgba(247,110,25,.30),transparent 70%),
+  radial-gradient(700px 500px at 10% 100%,rgba(98,180,255,.18),transparent 70%);pointer-events:none}
+.hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at 50% 40%,#000 30%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at 50% 40%,#000 30%,transparent 75%);pointer-events:none}
+.hero > .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;min-height:min(760px,92vh)}
+.kicker{display:inline-flex;align-items:center;gap:10px;padding:6px 14px 6px 8px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid var(--line-d);font-size:14px;color:rgba(255,255,255,.85);text-decoration:none}
+.kicker i{font-style:normal;background:var(--orange);color:#fff;border-radius:999px;padding:2px 9px;font-weight:600;font-size:12px}
+.hero h1{font-size:clamp(46px,6.4vw,84px);margin-top:22px}
+.hero h1 .grad{background:linear-gradient(90deg,#FFB27A,#F76E19 60%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{font-size:20px;color:rgba(255,255,255,.72);max-width:31em;margin-top:22px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+.stage{position:relative;height:600px}
+.ph{position:absolute;width:250px;border-radius:38px;padding:8px;background:#05080D;box-shadow:0 40px 80px -20px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.1)}
+.ph img{border-radius:30px}
+.ph.a{left:4%;top:40px;z-index:2;transform:rotate(-4deg)}
+.ph.b{right:2%;top:120px;transform:rotate(5deg)}
+.float{position:absolute;z-index:3;display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:14px;background:rgba(12,30,54,.72);border:1px solid var(--line-d);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-size:14px;color:#fff;box-shadow:0 14px 30px -12px rgba(0,0,0,.6)}
+.float b{display:block;font-size:15px}
+.float small{color:rgba(255,255,255,.65)}
+.float .dot{width:10px;height:10px;border-radius:50%;background:#3DDC84;box-shadow:0 0 0 4px rgba(61,220,132,.2)}
+.float.f1{left:-2%;bottom:120px}
+.float.f2{right:-4%;top:70px}
 
-/* platform strip */
-.strip{background:var(--navy-2);color:#9FB2C4;font-size:15px}
-.strip .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;padding-block:18px}
-.strip span b{color:#fff;font-weight:600}
+/* marquee of platforms */
+.plat{position:relative;z-index:1;background:var(--deep);border-top:1px solid var(--line-d);color:rgba(255,255,255,.6)}
+.plat .wrap{display:flex;flex-wrap:wrap;gap:14px 40px;justify-content:space-between;align-items:center;padding-block:22px;font-size:15px}
+.plat b{color:#fff;font-weight:600}
 
 /* sections */
-section.block{padding-block:96px}
-.head{max-width:640px;margin-bottom:44px}
-.head h2{font-size:clamp(34px,4vw,46px)}
-.head p{color:var(--ink-2);font-size:19px;margin-top:12px}
+.sec{padding-block:110px}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:44px;flex-wrap:wrap}
+.sh h2{font-size:clamp(36px,4.6vw,56px);max-width:13em}
+.sh p{color:var(--ink-2);font-size:19px;max-width:28em}
 
-/* products */
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.card{background:var(--white);border:1px solid var(--rule);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:14px;text-decoration:none;transition:border-color .15s, box-shadow .15s}
-a.card:hover{border-color:#B9C6D2;box-shadow:0 8px 24px rgba(11,26,43,.07)}
-.card .row{display:flex;align-items:center;gap:16px}
-.card .ic{width:64px;height:64px;border-radius:15px;flex:none;overflow:hidden;background:var(--navy)}
-.card h3{font-size:30px}
-.card .cat{color:var(--ink-3);font-size:15px;font-weight:500;margin-top:2px}
-.card p{color:var(--ink-2)}
-.card .foot{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:8px;font-size:15px}
-.card .go{color:var(--ink);font-weight:600}
-a.card:hover .go{color:var(--orange-d)}
-.pill{display:inline-flex;align-items:center;gap:7px;font-weight:600;font-size:14px}
-.pill::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
-.pill.live{color:var(--live)} .pill.soon{color:var(--soon)} .pill.test{color:var(--test)}
-.card.feature{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:0;overflow:hidden}
-.card.feature .body{padding:36px;display:flex;flex-direction:column;gap:16px}
-.card.feature h3{font-size:38px}
-.card.feature ul{list-style:none;color:var(--ink-2);display:grid;gap:6px}
-.card.feature li::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--orange);margin:0 10px 2px 0;vertical-align:middle}
-.card.feature .shot{background:linear-gradient(160deg,#13263B,#0B1A2B);display:flex;align-items:flex-end;justify-content:center;padding-top:36px;min-height:360px}
-.card.feature .shot img{width:230px;border-radius:26px 26px 0 0;border:8px solid #000;border-bottom:0}
-.appstore{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;border-radius:8px;padding:10px 16px;font-weight:600;font-size:15px;text-decoration:none;width:max-content}
-.appstore:hover{background:#000}
-.scripts-ic{display:grid;place-items:center;color:#fff;font:700 26px/1 "Barlow Condensed",sans-serif;background:linear-gradient(140deg,#2C3E9A,#151C4A)}
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.tile{position:relative;overflow:hidden;border-radius:26px;background:var(--white);border:1px solid var(--line);padding:30px;display:flex;flex-direction:column;gap:12px;text-decoration:none;transition:transform .2s,box-shadow .2s}
+a.tile:hover{transform:translateY(-3px);box-shadow:0 24px 50px -24px rgba(11,26,43,.35)}
+.tile .ic{width:58px;height:58px;border-radius:14px;flex:none;overflow:hidden}
+.tile h3{font-size:30px}
+.tile .who{font-size:14px;font-weight:600;color:var(--ink-3)}
+.tile p{color:var(--ink-2)}
+.tile .st{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;margin-top:auto}
+.tile .st::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+.st.live{color:#14864D} .st.soon{color:#A06A00} .st.test{color:#2E66B8}
+.tile .arrow{position:absolute;top:26px;right:26px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);transition:background .2s,border-color .2s,color .2s}
+a.tile:hover .arrow{background:var(--orange);border-color:var(--orange);color:#fff}
+.arrow svg{width:16px;height:16px}
+.t-aero{grid-column:span 4;grid-row:span 2;background:linear-gradient(160deg,#0C1E36,#071426);color:#fff;border-color:transparent;padding:40px;flex-direction:row;gap:30px}
+.t-aero .txt{display:flex;flex-direction:column;gap:14px;flex:1;min-width:0}
+.t-aero h3{font-size:44px}
+.t-aero .who{color:#FFB27A}
+.t-aero p{color:rgba(255,255,255,.72);font-size:18px}
+.t-aero ul{list-style:none;display:grid;gap:8px;color:rgba(255,255,255,.85)}
+.t-aero li{display:flex;gap:10px;align-items:center}
+.t-aero li::before{content:"";width:18px;height:18px;flex:none;border-radius:50%;background:rgba(247,110,25,.18) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F76E19' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 12 4 4 8-8'/%3E%3C/svg%3E") center/11px no-repeat}
+.t-aero .shot{width:250px;flex:none;align-self:flex-end;margin-bottom:-40px;border-radius:32px 32px 0 0;border:8px solid #000;border-bottom:0;overflow:hidden;box-shadow:0 -20px 60px -20px rgba(247,110,25,.45)}
+.t-aero .row2{display:flex;gap:12px;flex-wrap:wrap;margin-top:auto;align-items:center}
+.t-aero .arrow{border-color:var(--line-d);color:#fff}
+.store{display:inline-flex;align-items:center;gap:10px;height:50px;padding:0 18px;border-radius:12px;background:#fff;color:#000;text-decoration:none;font-weight:600}
+.store svg{width:22px;height:22px}
+.store small{display:block;font-size:11px;font-weight:500;line-height:1}
+.store span{line-height:1.1}
+.t-fam{grid-column:span 2;grid-row:span 2;background:linear-gradient(180deg,#FFF3EA,#fff 55%)}
+.t-fam .mini{margin:10px -30px -30px;height:230px;overflow:hidden;display:flex;justify-content:center}
+.t-fam .mini img{width:200px;border-radius:26px 26px 0 0;border:7px solid #000;border-bottom:0;align-self:flex-start}
+.t-cabin,.t-grid,.t-scripts{grid-column:span 2}
+.scripts-ic{display:grid;place-items:center;color:#fff;font:700 24px/1 Barlow,sans-serif;background:linear-gradient(140deg,#3B4FC4,#151C4A)}
+
+/* principles */
+.prin{background:var(--white);border-block:1px solid var(--line)}
+.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.pr .n{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:#FFF0E5;color:var(--orange)}
+.pr .n svg{width:26px;height:26px}
+.pr h3{font-size:26px;margin:20px 0 10px}
+.pr p{color:var(--ink-2)}
 
 /* company */
-.company{background:var(--white);border-block:1px solid var(--rule)}
-.company .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start}
-.company p{color:var(--ink-2);font-size:18px}
-.company p+p{margin-top:16px}
-.facts{border-top:2px solid var(--ink)}
-.facts div{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--rule);font-size:16px}
-.facts dt{color:var(--ink-3);font-weight:500}
-.facts dd{font-weight:600}
+.co{display:grid;grid-template-columns:1.05fr .95fr;gap:72px;align-items:start}
+.co p{color:var(--ink-2);font-size:19px}
+.co p+p{margin-top:16px}
+.facts{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:8px 26px}
+.facts div{display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-bottom:1px solid var(--line)}
+.facts div:last-child{border:0}
+.facts dt{color:var(--ink-3)}
+.facts dd{font-weight:600;text-align:right}
 
-/* contact */
-.contact .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.contact .box{background:var(--white);border:1px solid var(--rule);border-radius:16px;padding:28px}
-.contact h3{font-size:24px;margin-bottom:8px}
-.contact p{color:var(--ink-2)}
-.contact a{font-weight:600;color:var(--ink);text-underline-offset:3px}
+/* cta */
+.cta{padding-bottom:110px}
+.cta-box{position:relative;overflow:hidden;border-radius:32px;background:var(--deep);color:#fff;padding:64px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.cta-box::before{content:"";position:absolute;right:-120px;top:-120px;width:460px;height:460px;background:url("img/mark.svg") center/contain no-repeat;opacity:.12;pointer-events:none}
+.cta-box h2{font-size:clamp(34px,4vw,50px)}
+.cta-box p{color:rgba(255,255,255,.72);font-size:19px;margin-top:14px}
+.cta-list{display:grid;gap:12px;position:relative}
+.cta-list a{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 20px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid var(--line-d);text-decoration:none;transition:background .15s}
+.cta-list a:hover{background:rgba(255,255,255,.12)}
+.cta-list b{display:block}
+.cta-list small{color:rgba(255,255,255,.6);font-size:14px}
 
-/* footer */
-footer{background:var(--navy);color:#9FB2C4;font-size:15px}
-footer .wrap{padding-block:56px 32px}
-.fcols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
-.fcols h4{color:#fff;font:600 15px/1 Barlow,sans-serif;margin-bottom:14px}
-.fcols a{display:block;text-decoration:none;margin-bottom:8px}
-.fcols a:hover{color:#fff}
-.fcols .brand{margin-bottom:12px;color:#fff}
-.legal{border-top:1px solid rgba(255,255,255,.1);margin-top:40px;padding-top:20px;font-size:13px;color:#7F93A6;display:grid;gap:8px}
+footer{background:var(--deep);color:rgba(255,255,255,.6);font-size:15px}
+footer .wrap{padding-block:60px 34px}
+.fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px}
+.fgrid h4{color:#fff;font-size:15px;margin-bottom:14px}
+.fgrid a{display:block;text-decoration:none;margin-bottom:9px}
+.fgrid a:hover{color:#fff}
+.fgrid a.logo{display:inline-flex;color:#fff;margin-bottom:16px}
+.fine{border-top:1px solid var(--line-d);margin-top:44px;padding-top:22px;font-size:13px;display:grid;gap:8px;color:rgba(255,255,255,.45)}
 
-@media (max-width:900px){
-  .hero .wrap{grid-template-columns:1fr;padding-top:56px;gap:0}
-  .hero .copy{padding-bottom:40px}
-  .phone{width:180px;height:330px}
-  .phone.b{height:280px}
-  .grid{grid-template-columns:1fr}
-  .card.feature{grid-template-columns:1fr}
-  .card.feature .shot{min-height:300px}
-  .company .wrap{grid-template-columns:1fr;gap:40px}
-  .contact .grid3{grid-template-columns:1fr}
-  .fcols{grid-template-columns:1fr 1fr}
-  .nav a:not(.btn){display:none}
-  section.block{padding-block:72px}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:1000px){
+  .hero > .wrap{grid-template-columns:1fr;min-height:0;padding-block:56px 0}
+  .stage{height:430px;margin-inline:auto;width:min(100%,460px)}
+  .ph{width:190px}
+  .float.f2{right:0} .float.f1{left:0;bottom:60px}
+  .bento{grid-template-columns:repeat(2,1fr)}
+  .t-aero{grid-column:span 2;flex-direction:column;padding:32px 30px 0}
+  .t-aero .shot{align-self:center;margin-bottom:0;width:220px}
+  .t-fam{grid-column:span 2}
+  .t-cabin,.t-grid,.t-scripts{grid-column:span 1}
+  .t-scripts{grid-column:span 2}
+  .cols3{grid-template-columns:1fr;gap:32px}
+  .co{grid-template-columns:1fr;gap:40px}
+  .cta-box{grid-template-columns:1fr;padding:40px 28px}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .menu a:not(.btn):not(.signin){display:none}
+  .menu .signin{font-size:0;gap:0}
+  .menu .signin svg{width:22px;height:22px}
+  .sec{padding-block:80px}
 }
-@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media (max-width:620px){
+  .t-cabin,.t-grid,.t-scripts{grid-column:span 2}
+  .logo span{letter-spacing:.5em}
+  .stage{height:380px}
+  .ph{width:165px;border-radius:30px}
+  .ph img{border-radius:24px}
+  .float{font-size:13px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
 <body>
 
-<header class="top">
+<header class="top" id="top">
   <div class="wrap">
-    <a class="brand" href="/" aria-label="Orvix Studios home">
-      <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#13263B"/><circle cx="32" cy="32" r="15" fill="none" stroke="#fff" stroke-width="6"/><path d="M9 44 C 24 52, 44 50, 57 22" fill="none" stroke="#F76E19" stroke-width="5" stroke-linecap="round"/></svg>
-      <b>Orvix Studios</b>
-    </a>
-    <nav class="nav" aria-label="Main">
+    <a class="logo" href="/" aria-label="Orvix Studios home"><img src="img/mark.svg" alt="" width="40" height="40"><span class="wm"><b>ORVIX</b><span>STUDIOS</span></span></a>
+    <nav class="menu" aria-label="Main">
       <a href="#products">Products</a>
+      <a href="#approach">Approach</a>
       <a href="#company">Company</a>
-      <a class="btn primary" href="#contact">Contact us</a>
+      <a class="signin" href="https://orvixcentralhub.com" title="Orvix Central Hub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Team sign in</a>
+      <a class="btn primary" href="#contact">Contact</a>
     </nav>
   </div>
 </header>
@@ -159,120 +217,126 @@ footer .wrap{padding-block:56px 32px}
 <main>
   <section class="hero">
     <div class="wrap">
-      <div class="copy">
-        <h1>Software for the people who fly, <em>and the people who wait for them.</em></h1>
-        <p>Orvix Studios builds apps for airline pilots, flight attendants and their families, plus tools for online gaming communities.</p>
+      <div>
+        <a class="kicker" href="https://apps.apple.com/us/app/orvix-aero-pilot-logbook/id6824412999"><i>New</i> Orvix Aero is on the App Store</a>
+        <h1>Software for the people who fly, <span class="grad">and everyone waiting for them.</span></h1>
+        <p class="lead">Orvix Studios builds apps for airline pilots, flight attendants and their families, plus tools for the online communities they play in.</p>
         <div class="ctas">
-          <a class="btn primary" href="#products">See our products</a>
-          <a class="btn ghost" href="#company">About the company</a>
+          <a class="btn primary" href="#products">Explore our products <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn glass" href="#company">About the company</a>
         </div>
       </div>
-      <div class="phones" aria-hidden="true">
-        <div class="phone a"><img src="img/home.jpg" alt="" width="620" height="1347"></div>
-        <div class="phone b"><img src="img/family-home.jpg" alt="" width="620" height="1347"></div>
+      <div class="stage" aria-hidden="true">
+        <div class="ph a"><img src="img/home.jpg" alt="" width="620" height="1347"></div>
+        <div class="ph b"><img src="img/family-home.jpg" alt="" width="620" height="1347"></div>
+        <div class="float f1"><span class="dot"></span><div><b>Legal to fly</b><small>FAR 117 check passed</small></div></div>
+        <div class="float f2"><img src="img/family.png" alt="" width="30" height="30" style="border-radius:8px"><div><b>Landed in MIA</b><small>Home in about 1 h 20 min</small></div></div>
       </div>
     </div>
+    <div class="plat"><div class="wrap">
+      <span><b>5</b> products</span>
+      <span>On <b>iPhone</b>, <b>Android</b>, <b>web</b> and <b>Windows</b></span>
+      <span>Designed by an <b>airline pilot</b></span>
+      <span>Based in <b>Florida</b></span>
+    </div></div>
   </section>
 
-  <div class="strip">
+  <section class="sec" id="products">
     <div class="wrap">
-      <span><b>5</b> products</span>
-      <span>Available on <b>iPhone</b>, <b>Android</b>, <b>web</b> and <b>Windows</b></span>
-      <span>Headquartered in <b>Florida</b></span>
-    </div>
-  </div>
-
-  <section class="block" id="products">
-    <div class="wrap">
-      <div class="head">
-        <h2>Our products</h2>
-        <p>Each product is built around a problem we live with ourselves, from logging flight time to following a loved one's trip.</p>
+      <div class="sh reveal">
+        <h2>Five products. One crew.</h2>
+        <p>Each one starts with a problem we live with ourselves, from logging flight time to knowing when someone will be home.</p>
       </div>
-
-      <div class="grid">
-        <article class="card feature">
-          <div class="body">
-            <div class="row">
-              <img class="ic" src="img/aero.png" alt="Orvix Aero icon" width="64" height="64">
-              <div><h3>Orvix Aero</h3><div class="cat">For airline pilots</div></div>
-            </div>
-            <p>One app for the whole trip: a pilot logbook that fills itself, FAR 117 rest and duty limits, the schedule from a screenshot, commuting and a daily briefing.</p>
-            <ul>
-              <li>Automatic logbook and totals</li>
-              <li>FAR 117 legality at a glance</li>
-              <li>Commute planner with live flight tracking</li>
-            </ul>
-            <div class="foot" style="justify-content:flex-start;gap:18px;flex-wrap:wrap">
-              <a class="appstore" href="https://apps.apple.com/us/app/orvix-aero-pilot-logbook/id6824412999">Download on the App Store</a>
-              <a class="go" href="https://orvixaero.com">orvixaero.com</a>
+      <div class="bento">
+        <article class="tile t-aero reveal">
+          <div class="txt">
+            <img class="ic" src="img/aero.png" alt="Orvix Aero icon" width="58" height="58">
+            <div><div class="who">For airline pilots</div><h3>Orvix Aero</h3></div>
+            <p>The whole trip in one app: a logbook that fills itself, FAR 117 rest and duty limits, your schedule from a screenshot, commuting and a daily briefing.</p>
+            <ul><li>Automatic logbook and totals</li><li>FAR 117 legality at a glance</li><li>Live commute and flight tracking</li></ul>
+            <div class="row2">
+              <a class="store" href="https://apps.apple.com/us/app/orvix-aero-pilot-logbook/id6824412999"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-1.9-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.1 2.5-1.8 3.1-.5 7.6 1.3 10.1.9 1.2 1.9 2.6 3.2 2.5 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.3.8 1.4 0 2.3-1.2 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.9-4.1zM14 5.3c.7-.8 1.2-2 1-3.1-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3 1.1.1 2.2-.6 2.9-1.4z"/></svg><span><small>Download on the</small>App Store</span></a>
+              <a class="btn glass" href="https://orvixaero.com" style="height:50px">orvixaero.com</a>
             </div>
           </div>
           <div class="shot"><img src="img/schedule.jpg" alt="Orvix Aero schedule screen" width="620" height="1347" loading="lazy"></div>
         </article>
 
-        <article class="card">
-          <div class="row">
-            <img class="ic" src="img/family.png" alt="Orvix Family icon" width="64" height="64">
-            <div><h3>Orvix Family</h3><div class="cat">For pilots' families</div></div>
-          </div>
-          <p>Follow a pilot's trips, flights and landings live, and know when they'll be home.</p>
-          <div class="foot"><span class="pill soon">Coming soon to the App Store</span></div>
+        <article class="tile t-fam reveal">
+          <img class="ic" src="img/family.png" alt="Orvix Family icon" width="58" height="58">
+          <div><div class="who">For pilots' families</div><h3>Orvix Family</h3></div>
+          <p>Follow a pilot's trips and landings live, and know when they'll be home.</p>
+          <span class="st soon">Coming soon to the App Store</span>
+          <div class="mini"><img src="img/family-home.jpg" alt="Orvix Family home screen" width="620" height="1347" loading="lazy"></div>
         </article>
 
-        <article class="card">
-          <div class="row">
-            <img class="ic" src="img/cabin.png" alt="Orvix Cabin icon" width="64" height="64">
-            <div><h3>Orvix Cabin</h3><div class="cat">For flight attendants</div></div>
-          </div>
+        <article class="tile t-cabin reveal">
+          <img class="ic" src="img/cabin.png" alt="Orvix Cabin icon" width="58" height="58">
+          <div><div class="who">For flight attendants</div><h3>Orvix Cabin</h3></div>
           <p>Schedule, trips, layovers and crew tools built for flight attendants.</p>
-          <div class="foot"><span class="pill test">In testing · iPhone and Android</span></div>
+          <span class="st test">In testing on iPhone and Android</span>
         </article>
 
-        <a class="card" href="https://orvixgrid.com">
-          <div class="row">
-            <img class="ic" src="img/grid.png" alt="Orvix Grid icon" width="64" height="64">
-            <div><h3>Orvix Grid</h3><div class="cat">For Star Citizen players</div></div>
-          </div>
-          <p>A companion app and community hub for Star Citizen players and organizations.</p>
-          <div class="foot"><span class="pill live">Live</span><span class="go">orvixgrid.com</span></div>
+        <a class="tile t-grid reveal" href="https://orvixgrid.com">
+          <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+          <img class="ic" src="img/grid.png" alt="Orvix Grid icon" width="58" height="58">
+          <div><div class="who">For Star Citizen players</div><h3>Orvix Grid</h3></div>
+          <p>A companion app and community hub for players and organizations.</p>
+          <span class="st live">Live at orvixgrid.com</span>
         </a>
 
-        <a class="card" href="https://orvixscripts.com">
-          <div class="row">
-            <div class="ic scripts-ic" aria-hidden="true">&lt;/&gt;</div>
-            <div><h3>Orvix Scripts</h3><div class="cat">For FiveM server owners</div></div>
-          </div>
+        <a class="tile t-scripts reveal" href="https://orvixscripts.com">
+          <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+          <div class="ic scripts-ic" aria-hidden="true">&lt;/&gt;</div>
+          <div><div class="who">For FiveM server owners</div><h3>Orvix Scripts</h3></div>
           <p>Original, ready-to-install scripts for FiveM roleplay servers.</p>
-          <div class="foot"><span class="pill live">Store open</span><span class="go">orvixscripts.com</span></div>
+          <span class="st live">Store open at orvixscripts.com</span>
         </a>
       </div>
     </div>
   </section>
 
-  <section class="block company" id="company">
+  <section class="sec prin" id="approach">
     <div class="wrap">
-      <div>
-        <div class="head" style="margin-bottom:24px"><h2>About Orvix Studios</h2></div>
-        <p>Orvix Studios started in a cockpit. Our founder, an airline pilot, was tired of juggling five apps and a spreadsheet to track a single trip, so he built one app that does it all.</p>
-        <p>That app became Orvix Aero, and the same approach now drives everything we make: practical software, designed by people who use it every day, available on the devices our users already carry.</p>
+      <div class="sh reveal"><h2>How we build</h2><p>Small team, short feedback loops, and software we use on our own days off and trips.</p></div>
+      <div class="cols3">
+        <div class="pr reveal"><div class="n"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16l20-8-6 12-3-5-5 3z"/></svg></div><h3>Built from the cockpit</h3><p>Our founder flies for a living. Features come from real trips, real rest problems and real commutes.</p></div>
+        <div class="pr reveal"><div class="n"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><h3>Your data stays yours</h3><p>Logbooks and schedules are private to each user. We never sell data, and you can export or delete it at any time.</p></div>
+        <div class="pr reveal"><div class="n"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="13" height="10" rx="2"/><rect x="15" y="9" width="6" height="11" rx="1.5"/><path d="M7 18h5"/></svg></div><h3>Everywhere you are</h3><p>One account across iPhone, Android, the web and Windows, so your logbook is on whichever screen is closest.</p></div>
       </div>
-      <dl class="facts">
+    </div>
+  </section>
+
+  <section class="sec" id="company">
+    <div class="wrap co">
+      <div class="reveal">
+        <div class="sh" style="margin-bottom:24px"><h2>About Orvix Studios</h2></div>
+        <p>Orvix Studios started in a cockpit. Our founder, an airline pilot, was tired of juggling five apps and a spreadsheet to track a single trip, so he built one app that does it all.</p>
+        <p>That app became Orvix Aero. The same approach now drives everything we make: practical software, designed by people who use it every day.</p>
+      </div>
+      <dl class="facts reveal">
         <div><dt>Legal name</dt><dd>Orvix Studios LLC</dd></div>
-        <div><dt>Organized in</dt><dd>Florida, 2026</dd></div>
+        <div><dt>Organized</dt><dd>Florida, 2026</dd></div>
         <div><dt>Headquarters</dt><dd>St. Petersburg, Florida</dd></div>
-        <div><dt>Focus</dt><dd>Aviation software, consumer apps, gaming tools</dd></div>
+        <div><dt>Focus</dt><dd>Aviation, family and gaming software</dd></div>
         <div><dt>Platforms</dt><dd>iOS, Android, web, Windows</dd></div>
       </dl>
     </div>
   </section>
 
-  <section class="block contact" id="contact">
+  <section class="cta" id="contact">
     <div class="wrap">
-      <div class="head"><h2>Contact us</h2><p>We usually reply within one business day.</p></div>
-      <div class="grid3">
-        <div class="box"><h3>Business and partnerships</h3><p>Airlines, unions, flight schools and partners: <a href="mailto:info@orvixaero.com">info@orvixaero.com</a></p></div>
-        <div class="box"><h3>App support</h3><p>Use Help in the app, or write to <a href="mailto:info@orvixaero.com">info@orvixaero.com</a> with the app name.</p></div>
-        <div class="box"><h3>Privacy and legal</h3><p>Read our <a href="https://orvixaero.com/privacy.html">Privacy policy</a> and <a href="https://orvixaero.com/terms.html">Terms of use</a>.</p></div>
+      <div class="cta-box reveal">
+        <div>
+          <h2>Let's talk.</h2>
+          <p>Airlines, unions, flight schools, partners and press: we usually reply within one business day.</p>
+          <div style="margin-top:28px"><a class="btn primary" href="mailto:info@orvixaero.com">info@orvixaero.com</a></div>
+        </div>
+        <div class="cta-list">
+          <a href="mailto:info@orvixaero.com?subject=Partnership"><div><b>Partnerships</b><small>Airlines, unions and flight schools</small></div><span>→</span></a>
+          <a href="mailto:info@orvixaero.com?subject=App%20support"><div><b>App support</b><small>Or use Help inside the app</small></div><span>→</span></a>
+          <a href="https://orvixaero.com/privacy.html"><div><b>Privacy and legal</b><small>Privacy policy and terms of use</small></div><span>→</span></a>
+        </div>
       </div>
     </div>
   </section>
@@ -280,20 +344,28 @@ footer .wrap{padding-block:56px 32px}
 
 <footer>
   <div class="wrap">
-    <div class="fcols">
+    <div class="fgrid">
       <div>
-        <a class="brand" href="/"><svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#13263B"/><circle cx="32" cy="32" r="15" fill="none" stroke="#fff" stroke-width="6"/><path d="M9 44 C 24 52, 44 50, 57 22" fill="none" stroke="#F76E19" stroke-width="5" stroke-linecap="round"/></svg><b>Orvix Studios</b></a>
-        <p>Software for aviation professionals, their families and online communities.</p>
+        <a class="logo" href="/"><img src="img/mark.svg" alt="" width="36" height="36"><span class="wm"><b>ORVIX</b><span>STUDIOS</span></span></a>
+        <p>Software for the people who fly, their families and the communities they play in.</p>
       </div>
       <div><h4>Products</h4><a href="https://orvixaero.com">Orvix Aero</a><a href="#products">Orvix Family</a><a href="#products">Orvix Cabin</a><a href="https://orvixgrid.com">Orvix Grid</a><a href="https://orvixscripts.com">Orvix Scripts</a></div>
-      <div><h4>Company</h4><a href="#company">About</a><a href="#contact">Contact</a></div>
+      <div><h4>Company</h4><a href="#approach">Approach</a><a href="#company">About</a><a href="#contact">Contact</a><a href="https://orvixcentralhub.com">Team sign in</a></div>
       <div><h4>Legal</h4><a href="https://orvixaero.com/privacy.html">Privacy policy</a><a href="https://orvixaero.com/terms.html">Terms of use</a></div>
     </div>
-    <div class="legal">
+    <div class="fine">
       <span>© 2026 Orvix Studios LLC. All rights reserved.</span>
       <span>Orvix Grid is an unofficial fan project, not affiliated with Cloud Imperium Games; Star Citizen is a trademark of Cloud Imperium Rights LLC. Orvix Scripts is not affiliated with Cfx.re or Rockstar Games. App Store is a service mark of Apple Inc.</span>
     </div>
   </div>
 </footer>
+
+<script>
+  const top_ = document.getElementById('top');
+  const onScroll = () => top_.classList.toggle('solid', scrollY > 10);
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  const io = 'IntersectionObserver' in window ? new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 }) : null;
+  document.querySelectorAll('.reveal').forEach((el) => io ? io.observe(el) : el.classList.add('in'));
+</script>
 </body>
 </html>
